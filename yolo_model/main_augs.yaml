@@ -1,0 +1,25 @@
+patience: 20
+optimizer: SGD
+lr0: 0.01
+lrf: 0.01
+warmup_epochs: 6
+#cos_lr: true #disable lrf if True
+momentum: 0.937
+weight_decay: 0.0005
+warmup_bias_lr: 0.1
+conf: 0.2
+iou: 0.6 #intersection over union
+auto_augment: None  #disable default random augments
+degrees: 15       #rotation
+translate: 0.20    #shift images
+scale: 0.30         #scale percentage, up and down
+flipud: 0        #flip upside down
+fliplr: 0.30      #flip images left to right 
+hsv_h: 0.0 #hue
+hsv_s: 0.0 #saturation
+hsv_v: 0.15 #brightness 
+mosaic: 1
+erasing: 0
+shear: 15
+mixup: 0.3
+close_mosaic: 0 #ensures mosaic is not disabled last <int> iterations

@@ -1,0 +1,7 @@
+path: /content/TurbineAid/yolo_dataset # dataset root dir 
+train: images/train 
+val: images/val
+
+names: # class to predict
+    0: ttp
+
