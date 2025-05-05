@@ -9,3 +9,6 @@ __pycache__
 venv/
 
 .webui_secret_key
+
+results
+chromadb
