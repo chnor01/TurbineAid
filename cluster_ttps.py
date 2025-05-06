@@ -25,7 +25,7 @@ def yolo_to_pixels(bbox, img_width, img_height):
     y2 = int((y_center + h/2) * img_height)
     return [x1, y1, x2, y2]
 
-# Initialize lists to store ROIs and metadata
+
 all_rois = []
 all_metadata = []
 
@@ -62,7 +62,7 @@ for img_name in os.listdir(image_dir):
             "class": class_id  
         })
     
-    
+# Configuration for ROI embeddings 
 device = torch.device("cpu")
 model = models.efficientnet_b2(weights="IMAGENET1K_V1") 
 model.classifier = torch.nn.Identity()
@@ -98,6 +98,15 @@ with open(f"{similarity_dir}/main_metadata.json", "w") as f:
     json.dump(all_metadata, f)
 
 def assign_damage_and_plot_clusters():
+    """
+    Performs clustering on feature vectors using KMeans and assigns damage classifications to each ROI.
+    
+    The function does the following: 
+    1. Applies KMeans clustering to group the feature vectors into 5 clusters.
+    2. Uses t-SNE for 2D visualization of the clustered data.
+    3. Maps each cluster to a predefined damage type (e.g., erosion, crack, etc.).
+    4. Plots the clustered data in 2D space.
+    """
     with open(f"{similarity_dir}/main_metadata.json", "r") as f:
         main_metadata = json.load(f)
     print(len(all_metadata))

@@ -131,7 +131,6 @@ class Pipeline:
             # Initialize Chroma client and collection
             chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
             chroma_collection = chroma_client.get_or_create_collection("llama_index_chroma")
-            print(f"Chroma collection count: {chroma_collection.count()}")
             
             vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
             splitter = SentenceSplitter(chunk_size=1024, chunk_overlap=128)
@@ -147,6 +146,7 @@ class Pipeline:
                 # Load ChromaDB index if it exists
                 index = VectorStoreIndex.from_vector_store(vector_store)
                 
+            print(f"Chroma collection count: {chroma_collection.count()}")
             # Create a retriever to fetch top-10 most similar chunks for a given query
             self.retriever = index.as_retriever(similarity_top_k=10)
             
@@ -415,7 +415,8 @@ class Pipeline:
             print("No image uploaded, skipping to RAG...")
             
         qa_prompt = PromptTemplate(
-            """You are an expert wind turbine technician assistant. Your task is to provide accurate, 
+            """
+            You are an expert wind turbine technician assistant. Your task is to provide accurate, 
             concise, and practical answers based ONLY on the technical context provided below.
 
             If the answer cannot be found in the context, reply with: 
