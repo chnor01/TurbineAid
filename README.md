@@ -19,5 +19,5 @@ This project presents a decision support system for detecting and analyzing **th
   A chat interface allows uploading thermal images, detecting damage, retrieving documentation, and receiving the LLM response all in one interaction.
 
 ### Project Demo
-https://github.com/user-attachments/assets/c7ab91ea-c0ba-4f14-be90-fbe94b1fafe8
+https://github.com/user-attachments/assets/80683799-9ae2-4f0c-9332-f8e7436d95c3
 
