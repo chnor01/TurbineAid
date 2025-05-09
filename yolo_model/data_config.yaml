@@ -1,4 +1,4 @@
-path: /content/TurbineAid/yolo_dataset # dataset root dir 
+path: /content/TurbineAid/data/yolo_dataset # dataset root dir, requires absolute path
 train: images/train 
 val: images/val
 

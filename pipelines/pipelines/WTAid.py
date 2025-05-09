@@ -147,8 +147,9 @@ class Pipeline:
                 index = VectorStoreIndex.from_vector_store(vector_store)
                 
             print(f"Chroma collection count: {chroma_collection.count()}")
-            # Create a retriever to fetch top-10 most similar chunks for a given query
-            self.retriever = index.as_retriever(similarity_top_k=10)
+            
+            # Create a retriever to fetch top-K most similar chunks for a given query
+            self.retriever = index.as_retriever(similarity_top_k=20)
             
         except Exception as e:
             print(f"Error during startup: {str(e)}")
@@ -347,7 +348,7 @@ class Pipeline:
                 
             # Format damage types for RAG input query
             damage_count = Counter(all_damage_class)
-            #damage_response = "\n".join([f"{dmg}: {qty}" for dmg, qty in damage_count.items()])
+            damage_response = "\n".join([f"{dmg}: {qty}" for dmg, qty in damage_count.items()])
             damage_response_types = ", ".join([dmg for dmg in damage_count.keys() if dmg != "unknown"]) # Skip 'unknown' damage
                 
             def annotate_damage_types(images_dir, json_path):
@@ -446,7 +447,7 @@ class Pipeline:
         # Response if user uploads an image. Includes RAG LLM response + markdown image
         if latest_image_url:
             response = query_engine.custom_query(user_message, damage_response_types)
-            final_response = response + "\n" + markdown_img
+            final_response = "Damages: \n" + damage_response + markdown_img + "\n" + response
             print(response)
             return final_response
         

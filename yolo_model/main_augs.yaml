@@ -18,8 +18,8 @@ fliplr: 0.30      #flip images left to right
 hsv_h: 0.0 #hue
 hsv_s: 0.0 #saturation
 hsv_v: 0.15 #brightness 
-mosaic: 1
+mosaic: 1 #combines 4 images into 1
 erasing: 0
-shear: 15
-mixup: 0.3
+shear: 15 #perspective distortion
+mixup: 0.3 #blends two images
 close_mosaic: 0 #ensures mosaic is not disabled last <int> iterations
