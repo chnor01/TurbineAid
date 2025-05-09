@@ -67,7 +67,7 @@ A cloned version of the [OpenWebUI's Pipelines](https://github.com/open-webui/pi
    ```
 5. Install dependencies
    ```bash
-   pip install -r requirements.txt
+   pip install -r pipelines/requirements.txt
    ```
 6. Start servers
    ```bash
