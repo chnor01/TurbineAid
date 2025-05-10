@@ -1,0 +1,14 @@
+__pycache__
+pipelines/.env
+
+pipelines/litellm
+
+pipelines/.DS_Store
+
+pipelines/.venv
+pipelines/venv/
+
+pipelines/results
+pipelines/chromadb
+
+.webui_secret_key
