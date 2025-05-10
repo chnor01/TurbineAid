@@ -51,32 +51,43 @@ A cloned version of the [OpenWebUI's Pipelines](https://github.com/open-webui/pi
 - **GPU with at least 8GB RAM** (for RAG and LLM)
 
 ## 🛠️ Setup Instructions
-1. Install Open WebUI
-   ```bash
-   pip install open-webui
-   ```
-3. **Clone the repository**:
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/chnor01/TurbineAid.git
    cd TurbineAid
    ```
-4. **Create virtual environment**
+2. **Create virtual environment and activate**
    ```bash
    python -m venv openwebui
    openwebui\Scripts\activate
    ```
-5. Install dependencies
+3. **Install Open WebUI**
+   ```bash
+   pip install open-webui
+   ```
+4. **Install Pipelines dependencies**
    ```bash
    pip install -r pipelines/requirements.txt
    ```
-6. Start servers
+5. **Download Ollama LLM and embedding model**
+   ```bash
+   ollama pull gemma3:4b
+   ollama pull bge-m3
+   ```
+7. **Start servers (ensure ```openwebui``` is activated)**
    ```bash
    open-webui serve
+   cd pipelines; ./start.bat
    ollama serve
    ```
-   ```bash
-   cd pipelines; ./start.bat
-   ```
+8. Access Open WebUI at ```http://localhost:8080```<br/>
+   Press your name in the bottom left, then **Admin Panel** > **Settings** > **Connections** > **Manage OpenAI API Connections**. <br/>
+   Replace ```https://api.openai.com/v1``` with ```http://localhost:9099``` and **API Key** to ```0p3n-w3bu!``` <br/>
+   Open WebUI and Pipelines are now ready! <br/>
+   **See [Project Demo](#project-demo) below for a demonstration**
+
+## Notes 
+- Only images from **`data/yolo_dataset/test/`** should be used to test the system. 
    
 ### Project Demo
 https://github.com/user-attachments/assets/80683799-9ae2-4f0c-9332-f8e7436d95c3   
