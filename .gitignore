@@ -12,3 +12,4 @@ pipelines/results
 pipelines/chromadb
 
 .webui_secret_key
+data/ki-visir_dataset
