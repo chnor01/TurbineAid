@@ -1,4 +1,4 @@
-# Wind Turbine Blade Monitoring using Thermal Images and RAG with LLM 
+# Multimodal AI-Based Decision Support System for Wind Turbine Blade Damage Detection Using Thermographic Imaging and RAG   
 This project presents a decision support system for detecting and analyzing **thermal turbulence patterns (TTPs)** on wind turbine blades using **YOLOv11**, **K-Means clustering**, **FAISS similarity search**, and **LLM-based Retrieval-Augmented Generation (RAG)**. It aims to automate fault detection and provide interpretable, context-based recommendations for wind turbine maintenance.
 
 ## 📌 Features
