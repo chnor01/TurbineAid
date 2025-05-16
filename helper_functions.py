@@ -10,7 +10,8 @@ import random
 
 def npy_to_image(npy_array):
     """
-    Converts a NumPy array (wind turbine blade thermograms) into an RGB image. Applies Contrast Limited Adaptive Histogram Equalization (CLAHE) for contrast enhancement and unsharp masking for sharpness.
+    Converts a NumPy array (wind turbine blade thermograms) into a grayscale image. Applies Contrast Limited Adaptive Histogram Equalization (CLAHE) 
+    for contrast enhancement and unsharp masking for sharpness. Based on code from KI-VISIR dataset, 'ki_visir_helper_functions_v2.py'.
     """
     # Calculate mean without NaNs
     mean_val = np.nanmean(npy_array)
@@ -33,7 +34,7 @@ def npy_to_image(npy_array):
     clahe_img = exposure.equalize_adapthist(normalized_image, clip_limit=0.01)
     unsharp_clahe_img = unsharp_mask(clahe_img, radius=4, amount=1.5)
     unsharp_clahe_img = np.clip(unsharp_clahe_img * 255, 0, 255).astype(np.uint8)
-
+    cv2.imwrite("data/xdd.png", unsharp_clahe_img)
     return unsharp_clahe_img
 
 
