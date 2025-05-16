@@ -92,7 +92,7 @@ A cloned version of the [OpenWebUI's Pipelines](https://github.com/open-webui/pi
 ## Notes 
 - Only images from **`data/yolo_dataset/test/`** should be used to test the system. 
    
-### Project Demo
+### Project Demo (See `TurbineAidDemo.mp4` if the demo does not play)
 https://github.com/user-attachments/assets/80683799-9ae2-4f0c-9332-f8e7436d95c3   
 
 ### Citation
